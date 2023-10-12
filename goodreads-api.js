@@ -17,8 +17,8 @@ const parseReadCounts = (config, bodies) => {
     }
     reads[pname] = {
       name: config.challenges[i][0].trim(),
-      read: match.groups.read,
-      goal: match.groups.goal,
+      read: parseInt(match.groups.read, 10),
+      goal: parseInt(match.groups.goal, 10),
     };
   });
   return reads;

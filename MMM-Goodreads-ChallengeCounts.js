@@ -41,6 +41,9 @@ Module.register("MMM-Goodreads-ChallengeCounts", {
       const ddGoal = document.createElement("dd");
       group.classList.add("goodreads-count");
       readsGroup.classList.add("goodreads-count-reads");
+      if (reader.read >= reader.goal) {
+        readsGroup.classList.add("goodreads-count-goal-complete");
+      }
       dt.classList.add("goodreads-count-name");
       dt.innerText = reader.name;
       ddRead.classList.add("goodreads-count-read");
