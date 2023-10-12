@@ -1,0 +1,17 @@
+{
+  "name": "mmm-goodreads-challengecounts",
+  "version": "1.0.0",
+  "description": "Get a series of Goodreads reading challenges & show the stats",
+  "main": "MMM-Goodreads-ChallengeCounts.js",
+  "author": "Thomas J Bradley <hey@thomasjbradley.ca>",
+  "license": "MIT",
+  "scripts": {
+    "test": "./test.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  }
+}
