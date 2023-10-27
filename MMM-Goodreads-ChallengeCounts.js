@@ -65,7 +65,7 @@ Module.register("MMM-Goodreads-ChallengeCounts", {
   },
 
   scheduleUpdate: function () {
-    setInterval(function () {
+    setInterval(() => {
       this.getReadCounts();
     }, this.config.updateInterval);
   },
