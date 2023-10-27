@@ -14,9 +14,8 @@ module.exports = NodeHelper.create({
     console.log("MMM-Goodreads-ChallengeCounts helper started");
   },
   getReadCounts: function (config) {
-    const parent = this;
     goodreadsApi.getReadCounts(config).then((wins) => {
-      parent.sendSocketNotification("READ_COUNTS", wins);
+      this.sendSocketNotification("READ_COUNTS", wins);
     });
   },
   socketNotificationReceived: function (notification, payload) {
