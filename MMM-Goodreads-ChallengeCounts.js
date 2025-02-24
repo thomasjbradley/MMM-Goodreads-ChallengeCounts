@@ -39,13 +39,18 @@ Module.register("MMM-Goodreads-ChallengeCounts", {
       const readsGroup = document.createElement("div");
       const ddRead = document.createElement("dd");
       const ddGoal = document.createElement("dd");
+      const personName = document.createElement("strong");
+      const pageCount = document.createElement("em");
       group.classList.add("goodreads-count");
       readsGroup.classList.add("goodreads-count-reads");
       if (reader.read >= reader.goal) {
         readsGroup.classList.add("goodreads-count-goal-complete");
       }
       dt.classList.add("goodreads-count-name");
-      dt.innerText = reader.name;
+      personName.innerText = reader.name;
+      pageCount.innerText = `${reader.pages} pages`;
+      dt.appendChild(personName);
+      dt.appendChild(pageCount);
       ddRead.classList.add("goodreads-count-read");
       ddRead.innerText = reader.read;
       ddGoal.classList.add("goodreads-count-goal");
