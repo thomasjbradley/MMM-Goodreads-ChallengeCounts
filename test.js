@@ -7,8 +7,9 @@ const goodreadsApi = require("./goodreads-api.js");
 goodreadsApi
   .getReadCounts({
     challenges: [
-      ["Liz", "https://www.goodreads.com/user_challenges/41332601"],
-      ["Thomas", "https://www.goodreads.com/user_challenges/40779579"],
+      ["Thomas", "5284049", 80],
+      ["Liz", "17061373", 50],
+      ["Edith", "174718219", 50],
     ],
   })
   .then((reads) => {
