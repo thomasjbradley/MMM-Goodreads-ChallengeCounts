@@ -23,7 +23,10 @@ const isValidFeed = (reads) => {
 
 const isBookWithinYear = (book) => {
   const dt_read = new Date(book.user_read_at);
-  if (dt_read.valueOf() == NaN || dt_read.getFullYear() != new Date().getFullYear()) {
+  if (
+    Number.isNaN(dt_read.valueOf()) ||
+    dt_read.getFullYear() !== new Date().getFullYear()
+  ) {
     return false;
   }
   return true;
@@ -83,7 +86,7 @@ const parseReadCounts = (config, bodies) => {
       read: readCount,
       goal: config.challenges[i][2],
       pages: pageCount,
-      avgRating: ratings.reduce((a, b) => a + b) / ratings.length,
+      avgRating: ratings.reduce((a, b) => a + b, 0) / ratings.length,
     };
   });
   return reads;
