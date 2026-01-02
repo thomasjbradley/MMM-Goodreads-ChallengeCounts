@@ -1,7 +1,7 @@
 /**
  * Goodreads Reading Challenge Counts
  * @author Thomas J Bradley <hey@thomasjbradley.ca>
- * @license MIT Licensed.
+ * @license MIT
  */
 
 "use strict";
@@ -76,7 +76,7 @@ Module.register("MMM-Goodreads-ChallengeCounts", {
   },
 
   socketNotificationReceived: function (notification, payload) {
-    if (notification == "READ_COUNTS") {
+    if (notification === "READ_COUNTS") {
       this.result.reads = payload;
       this.updateDom(0);
     }
