@@ -1,7 +1,7 @@
 /**
  * Goodreads Reading Challenge Counts
  * @author Thomas J Bradley <hey@thomasjbradley.ca>
- * @license MIT Licensed.
+ * @license MIT
  */
 const { XMLParser } = require("fast-xml-parser");
 
