@@ -27,8 +27,8 @@ var config = {
             position: 'bottom_left',
             config: {
               challenges: [
-                ["Liz", "https://www.goodreads.com/user_challenges/41332601"],
-                ["Thomas", "https://www.goodreads.com/user_challenges/40779579"],
+                ["Thomas", "5284049", 80],
+                ["Liz", "17061373", 50],
               ],
             }
         }
@@ -38,7 +38,7 @@ var config = {
 
 ## Config options
 
-| Option         | Description                                                                        |
-| -------------- | ---------------------------------------------------------------------------------- |
-| challenges     | An array of arrays: each sub-array having the reader’s name & shared challenge URL |
-| updateInterval | *Optional* How often to update the win stats; Default 15 minutes                   |
+| Option         | Description                                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------------------------------- |
+| challenges     | An array of arrays: each sub-array having the reader’s name, the ID from the URL of the “My Books” page, the goal |
+| updateInterval | *Optional* How often to update the win stats; Default 15 minutes                                                  |
