@@ -14,9 +14,14 @@ module.exports = NodeHelper.create({
     console.log("MMM-Goodreads-ChallengeCounts helper started");
   },
   getReadCounts: function (config) {
-    goodreadsApi.getReadCounts(config).then((wins) => {
-      this.sendSocketNotification("READ_COUNTS", wins);
-    });
+    goodreadsApi
+      .getReadCounts(config)
+      .then((wins) => {
+        this.sendSocketNotification("READ_COUNTS", wins);
+      })
+      .catch((error) => {
+        console.error("MMM-Goodreads-ChallengeCounts:", error);
+      });
   },
   socketNotificationReceived: function (notification, payload) {
     if (notification === "GET_READ_COUNTS") {

@@ -34,6 +34,9 @@ Module.register("MMM-Goodreads-ChallengeCounts", {
     }
     this.config.challenges.forEach((challenge) => {
       const reader = this.result.reads[challenge[0].toLowerCase().trim()];
+      if (!reader) {
+        return;
+      }
       const group = document.createElement("div");
       const dt = document.createElement("dt");
       const readsGroup = document.createElement("div");
@@ -43,18 +46,21 @@ Module.register("MMM-Goodreads-ChallengeCounts", {
       const pageCount = document.createElement("em");
       group.classList.add("goodreads-count");
       readsGroup.classList.add("goodreads-count-reads");
-      if (reader.read >= reader.goal) {
+      if (reader.goal && reader.read >= reader.goal) {
         readsGroup.classList.add("goodreads-count-goal-complete");
       }
       dt.classList.add("goodreads-count-name");
       personName.innerText = reader.name;
-      pageCount.innerText = `${reader.pages} pages`;
       dt.appendChild(personName);
-      dt.appendChild(pageCount);
+      // Page counts only come from the RSS feed, not the challenge page
+      if (typeof reader.pages === "number") {
+        pageCount.innerText = `${reader.pages} pages`;
+        dt.appendChild(pageCount);
+      }
       ddRead.classList.add("goodreads-count-read");
       ddRead.innerText = reader.read;
       ddGoal.classList.add("goodreads-count-goal");
-      ddGoal.innerText = reader.goal;
+      ddGoal.innerText = reader.goal ?? "";
       group.appendChild(dt);
       readsGroup.appendChild(ddRead);
       readsGroup.appendChild(ddGoal);
